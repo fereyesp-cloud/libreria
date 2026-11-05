@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import desarrollofullstack.librerias.model.Libros;
 import desarrollofullstack.librerias.service.LibroService;
+import java.util.List;
 
 
 @RestController
@@ -47,5 +48,10 @@ public class LibroController {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Libros>> listar() {
+        return  ResponseEntity.ok(libroService.listar());
     }
 }
